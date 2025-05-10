@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Card for Twinkal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #1e1b3a, #3b2f80);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .card {
+      max-width: 500px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #ffccff;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #f0e6f6;
+    }
+
+    .heart {
+      width: 50px;
+      height: 45px;
+      background-color: red;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      animation: floatHearts 5s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 50px;
+      height: 45px;
+      background-color: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -25px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 25px;
+      top: 0;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translate(-50%, 100%) rotate(-45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translate(-50%, -600px) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        margin: 40px 20px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>To My Moon Princess, Twinkal🌙</h1>
+    <p>
+      In the night sky full of stars, you shine the brightest.<br />
+      Your smile melts the coldest moonlight, and your voice is the melody of my dreams.<br />
+      You are my starlit wish, my magical fairy, my Moon Princess. 💫<br />
+      With you, every heartbeat becomes poetry, every moment becomes a miracle.
+    </p>
+  </div>
+
+  <!-- Floating hearts using JS -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
